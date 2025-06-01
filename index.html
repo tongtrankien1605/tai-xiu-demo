@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trò Chơi Tài Xỉu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>=== TRÒ CHƠI TÀI XỈU BY VANH DEV ===</h1>
+        <!-- Màn hình đăng nhập -->
+        <div id="login-screen">
+            <h2>Đăng Nhập</h2>
+            <label for="login-username">Tên người dùng:</label>
+            <input type="text" id="login-username"> <br>
+            <label for="login-password">Mật khẩu:</label>
+            <input type="password" id="login-password"> <br>
+            <button onclick="login()">Đăng Nhập</button>
+            <p>Chưa có tài khoản? <a href="#" onclick="showRegister()">Đăng ký</a></p>
+            <p id="login-error" class="error"></p>
+        </div>
+        <!-- Màn hình đăng ký -->
+        <div id="register-screen" style="display: none;">
+            <h2>Đăng Ký</h2>
+            <label for="register-username">Tên người dùng:</label>
+            <input type="text" id="register-username"> <br>
+            <label for="register-email">Email:</label>
+            <input type="email" id="register-email"> <br> 
+            <label for="register-password">Mật khẩu:</label>
+            <input type="password" id="register-password"> <br>
+            <button onclick="register()">Đăng Ký</button>
+            <p>Đã có tài khoản? <a href="#" onclick="showLogin()">Đăng nhập</a></p>
+            <p id="register-error" class="error"></p>
+        </div>
+        <!-- Màn hình trò chơi -->
+        <div id="game-screen" style="display: none;">
+            <h2 id="round-info">--- VÒNG CHƠI 1 ---</h2>
+            <p id="user-info">Người chơi: Chưa đăng nhập</p>
+            <p id="balance">Số tiền hiện tại: 0 VND</p>
+            <p id="stats">Tài: 0 | Xỉu: 0</p>
+            <p id="history">Lịch sử: Chưa có</p>
+            <div id="bet-section">
+                <label>Chọn cược:</label>
+                <button onclick="selectBet('T')">Tài (T)</button>
+                <button onclick="selectBet('X')">Xỉu (X)</button>
+                <label for="bet-amount">Số tiền cược:</label>
+                <input type="number" id="bet-amount" min="1">
+                <button onclick="placeBet()">Đặt Cược</button>
+                <p id="bet-error" class="error"></p>
+            </div>
+            <div id="dice-result"></div>
+            <button onclick="logout()">Đăng Xuất</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
