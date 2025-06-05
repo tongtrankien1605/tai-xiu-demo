@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    color: #ffeb3b; /* Màu vàng sáng giống Fore.LIGHTYELLOW_EX */
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #ffc107; /* Màu vàng giống Fore.YELLOW */
+}
+
+p {
+    margin: 10px 0;
+}
+
+#balance {
+    color: #4caf50; /* Màu xanh lá giống Fore.GREEN */
+}
+
+#stats {
+    color: #9c27b0; /* Màu tím giống Fore.MAGENTA */
+}
+
+#history {
+    color: #2196f3; /* Màu xanh dương giống Fore.BLUE */
+}
+
+#dice-result {
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+#dice-result.tai {
+    color: #f44336; /* Màu đỏ giống Fore.RED */
+}
+
+#dice-result.xiu {
+    color: #00bcd4; /* Màu xanh lam giống Fore.CYAN */
+}
+
+.error {
+    color: #f44336;
+    font-size: 14px;
+}
+
+input[type="number"] {
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button:nth-child(2) {
+    background-color: #f44336; /* Màu đỏ cho Tài */
+    color: white;
+}
+
+button:nth-child(3) {
+    background-color: #00bcd4; /* Màu xanh lam cho Xỉu */
+    color: white;
+}
+
+button:last-child {
+    background-color: #666;
+    color: white;
+}
