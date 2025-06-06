@@ -78,6 +78,30 @@ function login() {
     }
 }
 
+function deposit() {
+    const depositAmount = parseInt(document.getElementById('deposit-amount').value);
+    const error = document.getElementById('deposit-error');
+
+    if (isNaN(depositAmount) || depositAmount < 1000) {
+        error.textContent = 'Số tiền nạp phải từ 1000 VND trở lên!';
+        return;
+    }
+
+    user.balance += depositAmount;
+    error.textContent = `Nạp thành công +${depositAmount} VND!`;
+
+    // Cập nhật localStorage
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    const userIndex = users.findIndex(u => u.username === user.username);
+    if (userIndex !== -1) {
+        users[userIndex].balance = user.balance;
+        localStorage.setItem('users', JSON.stringify(users));
+    }
+
+    updateGameInfo();
+    document.getElementById('deposit-amount').value = '';
+}
+
 function selectBet(bet) {
     selectedBet = bet;
     document.getElementById('bet-error').textContent = `Đã chọn: ${bet === 'T' ? 'Tài' : 'Xỉu'}`;
@@ -135,8 +159,8 @@ function placeBet() {
         localStorage.setItem(`stats_${user.username}`, JSON.stringify(stats));
 
         if (user.balance <= 0) {
-            document.getElementById('game-screen').innerHTML = '<h2>HẾT TIỀN RỒI! TẠM BIỆT!</h2>';
-            return;
+            document.getElementById('bet-error').textContent = 'Hết tiền! Vui lòng nạp thêm tiền để tiếp tục.';
+            // Không kết thúc trò chơi, cho phép người chơi nạp tiền
         }
 
         round++;
